@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.submitted {
+  outline: none !important;
+  cursor: auto !important;
+}
+
+.jumbotron {
+  min-height: calc(100vh - 56px);
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
