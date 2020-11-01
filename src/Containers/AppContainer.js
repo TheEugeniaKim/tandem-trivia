@@ -1,68 +1,32 @@
-import React, { useReducer, useState, useEffect } from 'react'
-import NavBar from '../Components/NavBar'
-import reducer from '../Redux/reducer'
-import { Container, Row, Col, Nav } from 'react-bootstrap'
-import data from '../Apprentice_TandemFor400_Data.json'
+import React, { useEffect, useState } from "react";
+import '../App.css'
+import { useQuiz } from "../Redux/reducer";
+import Navbar from "../Components/NavBar";
+import Progress from "../Components/Progress";
+import Jumbotron from "../Components/Jumbotron";
+import Results from "../Components/Results";
+import QuestionBox from "../Components/QuestionBox";
 
 
-function AppContainer(){
-  const [questionIndex, setQuestionIndex] = useState(0)
-  const [questions, setQuestions] = useState([])
-  const nextQuestion = () => setQuestionIndex(questionIndex => questionIndex + 1)
-  // const defaultState = {
-  //   questions: [data],
-  //   answeredQuestins: [],
-  //   numCorrect: 0,
-  //   numAnswered: 0
-  // }
-  // const [state, dispatch] = useReducer(reducer, defaultState)
+function AppContainer() {
+  const { questionIndex, questions, dispatch, fetchQuiz } = useQuiz();
+  const quizComplete = questionIndex === questions.length;
+  const loading = questions.length === 0; 
 
-  useEffect(() => {
-    setQuestions(data)
-  }, [])
+  useEffect(fetchQuiz, []);
   return (
     <div className="App">
-      <Nav className="justify-content-end" activeKey="/home">
-        <Nav.Text>
-          Question {questionIndex + 1}/10
-        </Nav.Text>
-        <Nav.Item>
-          <Nav.Link href="/home">
-            <img src="/public/logo192.png" alt="logo"></img>
-          </Nav.Link>
-        </Nav.Item>
-        
-      </Nav>
-     
-
-
-
-      {/* <Container fluid >
-        <Row>
-          <Container>
-            <h1>
-              This is the information Section (Heading 1)
-            </h1>
-            
-            <h2>
-              Hello and Welcome to Tandem Trivia (Heading 2)
-            </h2>
-
-            <h4>
-              Click the button below to get started (Heading 4)
-            </h4>
-
-            <h5>Score: {state.numCorrect}/10</h5>
-          </Container>
-        </Row>
-        <Row>
-          <Container>
-            <QuizContainer questions={state.questions} />
-          </Container>
-        </Row>
-      </Container> */}
+      <Navbar />
+      <Progress />
+      <Jumbotron>
+        {loading && "Loading..."}
+        {!loading && quizComplete && <Results  />}
+        {!loading && !quizComplete && <QuestionBox />}
+      </Jumbotron>
     </div>
-  )
+
+    
+  );
 }
 
 export default AppContainer

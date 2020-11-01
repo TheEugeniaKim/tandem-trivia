@@ -4,7 +4,6 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import AppContainer from './Containers/AppContainer'
-import NewAppContainer from './Containers/NewAppContainer'
 import { QuizProvider } from './Redux/reducer'
 
 function App() {
@@ -12,7 +11,7 @@ function App() {
     <div>
         {/* <AppContainer /> */}
         <QuizProvider>
-          <NewAppContainer />
+          <AppContainer />
         </QuizProvider>
     </div>
   )

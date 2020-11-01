@@ -30,8 +30,7 @@ export default setSubmittedAnswers => {
     <>
       <h1
         className="mb-3"
-        dangerouslySetInnerHTML={{ __html: question.question }}
-      />
+      >{question.question}</h1>
       <ListGroup as="ul">
         {question.answers.map((answer, index) => {
           return (
@@ -51,8 +50,9 @@ export default setSubmittedAnswers => {
                   submittedIndex === index
               })}
               onClick={() => submitAnswer(index)}
-              dangerouslySetInnerHTML={{ __html: answer }}
-            />
+            >
+              {answer}
+            </ListGroup.Item>
           );
         })}
       </ListGroup>

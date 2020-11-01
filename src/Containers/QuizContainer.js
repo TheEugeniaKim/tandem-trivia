@@ -18,13 +18,13 @@ function shuffle(a) {
 function QuizContainer({question, nextQuestion}){
   if (!question) return "Loading...";
 
-  const answers = [question.correct_answer, ...question.incorrect_answers]
+  const answers = [question.correct_answer, ...question.incorrect_answers];
 
-  const [submittedIndex, setSubmittedIndex] = useState(0)
-  const [shuffledAnswers, setShuffledAnswers] = useState(shuffle(answers))
+  const [submittedIndex, setSubmittedIndex] = useState(0);
+  const [shuffledAnswers, setShuffledAnswers] = useState(shuffle(answers));
 
-  const correctAnswerIndex = shuffledAnswers.indexOf(question.correct_answer)
-  const submitted = submittedIndex !== undefined
+  const correctAnswerIndex = shuffledAnswers.indexOf(question.correct_answer);
+  const submitted = submittedIndex !== undefined;
 
   useEffect(() => {
     setSubmittedIndex(undefined);
@@ -38,8 +38,7 @@ function QuizContainer({question, nextQuestion}){
   }
   // return props.questions[0].map(obj => {
     return (
-      <div>
-        <Jumbotron>
+      <Jumbotron>
       <Container>
         <Row className="justify-content-md-center">
           <Col xs={12} md={6}>
@@ -74,29 +73,14 @@ function QuizContainer({question, nextQuestion}){
           </Col>
         </Row>
       </Container>
-      {submitted && (
+      {
+        submitted && (
         <Button className="mt-3" variant="primary" onClick={nextQuestion}>
           Next
-        </Button>
-      )}
+        </Button>)
+      }
     </Jumbotron>
-
-        {/* <Form>
-          <Form.Group as={Row}>
-            <Question question={obj} />
-          </Form.Group>
-
-          <Form.Group as={Row}>
-            <Col sm={{ span: 10, offset: 2 }}>
-              <Button type="submit">Submit</Button>
-            </Col>
-          </Form.Group>
-        </Form> */}
-
-        {/* <Button>Click me</Button> */}
-      </div>
-    )
-    // })
+  )
 }
 
 export default QuizContainer

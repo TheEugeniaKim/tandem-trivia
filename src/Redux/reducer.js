@@ -1,28 +1,13 @@
-
-// function reducer(state, action) {
-//   switch (action.type) {
-//     case 'GET_QUESTIONS ':
-//       return {questions: action.payload}
-//     case 'CORRECT':
-//       return {numCorrect: state.numCorrect + 1, numAnswered: state.numAnswered + 1}
-//     case 'INCORRECT':
-//       return {numAnswered: state.numAnswered + 1}
-//     default:
-//       throw new Error()
-//   }
-// }
-
-// export default reducer 
-
 import React from "react";
 import data from '../Apprentice_TandemFor400_Data.json'
 
 const QuizContext = React.createContext();
 
 function quizReducer(state, action) {
+  console.log("state", state)
   switch (action.type) {
     case "QUESTIONS_FETCHED":
-      return { ...state, questions: action.questions };
+      return { ...state, questions: shuffle(action.questions).slice(0,10) };
     case "ANSWER_SUBMITTED":
       return {
         ...state,
@@ -38,7 +23,8 @@ function quizReducer(state, action) {
 const initialState = {
   questionIndex: 0,
   questions: [],
-  submittedAnswers: []
+  submittedAnswers: [],
+  numCorrect: 0
 };
 
 function QuizProvider(props) {
@@ -55,26 +41,17 @@ function useQuiz() {
   const [state, dispatch] = context;
 
   const fetchQuiz = () => {
-    // fetch(
-    //   "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple"
-    // )
-    //   .then(res => res.json())
-    //   .then(json => {
-    //     console.log("json", json)
     dispatch({
       type: "QUESTIONS_FETCHED",
       questions: data.map(questionObj => {
-        console.log(questionObj)
         const allAnswers = [
           questionObj.correct,
           ...questionObj.incorrect
         ];
         questionObj.answers = shuffle(allAnswers);
-        console.log("questionObj", questionObj)
         return questionObj;
       })
     });
-      // });
   };
 
   const nextQuestion = () => dispatch({ type: "NEXT_QUESTION" });
