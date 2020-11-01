@@ -1,5 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useQuiz } from "../Redux/reducer";
+import { Button } from "react-bootstrap";
+
+function handleClick(){
+  window.location.reload();
+}
 
 function Results({answers}) {
   const {questions, submittedAnswers} = useQuiz()
@@ -20,6 +25,7 @@ function Results({answers}) {
     <div>
       <h1>Results:</h1>
       <h2>You got {numCorrect}/10 Correct</h2>
+      <Button onClick={handleClick}>Take Quiz Again!</Button>
     </div>
   );
 }

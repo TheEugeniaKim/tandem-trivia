@@ -1,5 +1,5 @@
-import { Jumbotron, Container, Row, Col } from "react-bootstrap";
 import React from "react";
+import { Jumbotron, Container, Row, Col } from "react-bootstrap";
 
 function MyJumbotron({children}) {
   return (
