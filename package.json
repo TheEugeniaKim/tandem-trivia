@@ -12,6 +12,7 @@
     "react-bootstrap": "^1.4.0",
     "react-dom": "^16.8.0",
     "react-scripts": "3.4.4",
+    "serve": "^11.3.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
