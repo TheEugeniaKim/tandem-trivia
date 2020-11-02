@@ -3,13 +3,13 @@ The purpose of this React web application is to allow a user to read and underst
 
 # Getting Started with Tandem Trivia
 Visit the site here:  
-https://tandem-trivia-quiz.netlify.app/
+<https://tandem-trivia-quiz.netlify.app/>
 
 ## Technical Specifications:
 
-  [X] Built in React
-  [X] Styled in react-bootstrap
-  [X] Logo from: https://madeintandem.com/
+  [X] Built in React <br>
+  [X] Styled in react-bootstrap <br>
+  [X] Logo from: <https://madeintandem.com/> <br>
   [X] Deployed using Netlify
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f22250a7-993d-4a88-86ba-aaa5a32f9b31/deploy-status)](https://app.netlify.com/sites/tandem-trivia-quiz/deploys)
