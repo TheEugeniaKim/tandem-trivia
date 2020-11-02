@@ -13,7 +13,7 @@ function AppContainer(props) {
   const quizComplete = questionIndex === questions.length;
   const loading = questions.length === 0; 
 
-  useEffect(() => fetchQuiz(),[]);
+  useEffect(() => fetchQuiz,[]);
   
   return (
     <div className="App">
