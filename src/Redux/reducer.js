@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useReducer, useMemo } from "react";
 import data from '../Apprentice_TandemFor400_Data.json'
 
 const QuizContext = React.createContext();
 
 function quizReducer(state, action) {
-  console.log("state", state)
   switch (action.type) {
     case "QUESTIONS_FETCHED":
       return { ...state, questions: shuffle(action.questions).slice(0,10) };
@@ -15,6 +14,8 @@ function quizReducer(state, action) {
       };
     case "NEXT_QUESTION":
       return { ...state, questionIndex: state.questionIndex + 1 };
+    case "TOGGLE_MODAL":
+      return {...state, showModal: !state.showModal}
     default:
       throw new Error(`Unsupported action type: ${action.type}`);
   }
@@ -24,12 +25,12 @@ const initialState = {
   questionIndex: 0,
   questions: [],
   submittedAnswers: [],
-  numCorrect: 0
+  showModal: true
 };
 
 function QuizProvider(props) {
-  const [state, dispatch] = React.useReducer(quizReducer, initialState);
-  const value = React.useMemo(() => [state, dispatch], [state]);
+  const [state, dispatch] = useReducer(quizReducer, initialState);
+  const value = useMemo(() => [state, dispatch], [state]);
   return <QuizContext.Provider value={value} {...props} />;
 }
 
@@ -56,11 +57,14 @@ function useQuiz() {
 
   const nextQuestion = () => dispatch({ type: "NEXT_QUESTION" });
 
+  const toggleDirectionModal = () => dispatch({ type: "TOGGLE_MODAL" });
+
   return {
     ...state,
     dispatch,
     fetchQuiz,
-    nextQuestion
+    nextQuestion,
+    toggleDirectionModal
   };
 }
 
