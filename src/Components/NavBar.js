@@ -1,8 +1,8 @@
 import React from 'react'
-import { Navbar, Nav, Image } from 'react-bootstrap'
+import { Navbar, Image } from 'react-bootstrap'
 import { useQuiz } from "../Redux/reducer";
 
-function NavBar(props){
+function NavBar(){
   const { questionIndex, questions, toggleDirectionModal } = useQuiz();
   const questionNumber = questionIndex + 1;
   const quizComplete = questionNumber > questions.length;
