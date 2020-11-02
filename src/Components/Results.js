@@ -19,7 +19,7 @@ function Results({answers}) {
       }
     }    
     setNumCorrect(numCorrect)
-  }, [submittedAnswers])
+  }, [questions,submittedAnswers])
 
   return (
     <div>

@@ -10,14 +10,13 @@ import DirectionsModal from '../Components/DirectionsModal';
 
 function AppContainer() {
   const [modalShow, setModalShow] = useState(true);
-  const { questionIndex, questions, dispatch, fetchQuiz } = useQuiz();
+  const { questionIndex, questions, fetchQuiz } = useQuiz();
   const quizComplete = questionIndex === questions.length;
   const loading = questions.length === 0; 
 
   useEffect(() => {
-    console.log(modalShow)
     fetchQuiz()
-  }, []);
+  }, [fetchQuiz]);
   
   return (
     <div className="App">

@@ -4,7 +4,8 @@ import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import { useQuiz } from "../Redux/reducer";
 
-export default setSubmittedAnswers => {
+
+function QuestionBox(setSubmittedAnswers){
   const { questionIndex, questions, dispatch, nextQuestion } = useQuiz();
   const question = questions[questionIndex];
 
@@ -64,3 +65,5 @@ export default setSubmittedAnswers => {
     </>
   );
 };
+
+export default QuestionBox;
