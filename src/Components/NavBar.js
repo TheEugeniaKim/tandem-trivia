@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Image } from 'react-bootstrap'
+import { Navbar, Nav, Image } from 'react-bootstrap'
 import { useQuiz } from "../Redux/reducer";
 
 function NavBar(props){
@@ -8,21 +8,21 @@ function NavBar(props){
   const quizComplete = questionNumber > questions.length;
 
   return (
-    <Navbar bg="dark" expand="lg" variant="dark">
-      <Navbar.Text>
-        {quizComplete ? "Quiz complete!" : `Question ${questionNumber}/10`}
-      </Navbar.Text>
-
+    <Navbar bg="dark justify-content-between" expand="lg" variant="dark">
       <div 
-        className="justify-content-end" 
         onClick={toggleDirectionModal}
       >
+        <Image src="/logo192.png" className="logo" roundedCircle />
         <Navbar.Brand>
           Tandem Trivia 
         </Navbar.Brand>
-        <Image src="/logo192.png" className="logo" roundedCircle />
       </div>
+
+      <Navbar.Text className="justify-content-end">
+      {quizComplete ? "Quiz complete!" : `Question ${questionNumber}/10`}
+      </Navbar.Text>
     </Navbar>
+
   )
 }
 
