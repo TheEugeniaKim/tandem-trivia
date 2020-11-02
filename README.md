@@ -12,7 +12,6 @@ Visit the site here:
   ✅ Logo from: <https://madeintandem.com/> <br>
   ✅ Deployed using Netlify
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/996e566e-71c1-4183-83d1-4b0818ee1af8/deploy-status)](https://app.netlify.com/sites/tandem-trivia-app/deploys)
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/65f41449-8e57-4792-a5d2-cf71c10073cc/deploy-status)](https://app.netlify.com/sites/tandem-trivia-quiz/deploys)
 
 
