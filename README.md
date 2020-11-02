@@ -7,10 +7,10 @@ https://tandem-trivia-quiz.netlify.app/
 
 ## Technical Specifications:
 
-  -Built in React
-  -Styled in react-bootstrap
-  -logo from: https://madeintandem.com/
-  -Deployed using Netlify
+  [X] Built in React
+  [X] Styled in react-bootstrap
+  [X] Logo from: https://madeintandem.com/
+  [X] Deployed using Netlify
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f22250a7-993d-4a88-86ba-aaa5a32f9b31/deploy-status)](https://app.netlify.com/sites/tandem-trivia-quiz/deploys)
 
